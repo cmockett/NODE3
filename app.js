@@ -26,6 +26,15 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', routes);
 app.use('/users', users);
 
+app.post('/formsubmit', function(req, res){
+  // console.log(req.body)
+  // console.log("Hey!")
+    res.redirect('/success')
+})
+
+app.get('/success', function(req, res){
+  res.send("success!")
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -59,6 +68,7 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
 
 // var port = 3000
 // app.listen(port, function(){
